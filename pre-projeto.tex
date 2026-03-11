@@ -34,20 +34,20 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Título do Pré-projeto}
-\autor{Virgulino Ferreira da Silva}
+\titulo{Fatoração LZ78 utilizando R-Index}
+\autor{Arthur Andrade D'Olival}
 % para feminino use \orientadora{Nome da orientadora}
 %\orientadora{Maria Bonita}
-\orientador{Padre Cícero}
+\orientador{Daniel Saad Nogueira Nunes}
 
 % para masculino use \coorientador{Nome do coorientador}
 %\coorientador{Padre Cícero}
-\coorientadora{Maria Bonita}
+\coorientadora{ - }
 
 % Linha de pesquisa conforme tabela de áreas do CNPq
-\areadepesquisa{Computabilidade e Modelos de Computação }
+\areadepesquisa{Compressão de Dados}
 \local{Brasília, DF}
-\data{2020	}
+\data{2026	}
 
 \begin{document}
 
@@ -59,21 +59,55 @@
 
 
 \section*{Contextualização}
-	Este modelo visa adaptar a classe ABNTeX2 para utilização no IFB Taguatinga como documento de Pré-projeto, o qual deverá ser submetido para matrícula na disciplina de Projeto de Conclusão de Curso.
-	
-	Neste modelo, apresentamos apenas uma \textbf{sugestão} de seções adotadas com as suas breves descrições. O aluno e orientador podem adotar outra divisão se acharem conveniente.
-	
-	A bibliografia deve seguir o padrão estabelecido pela classe ABNTeX2 \cite{abntex2modelo-relatorio}.
-	
-	A contextualização deverá situar o tema de estudo e introduzir o problema a ser tratado.
+
+De acordo com projeções da Statista, empresa alemã especializada em dados de mercado e referência mundial em indicadores da economia digital, o volume global de dados criados, capturados, copiados e consumidos deverá atingir aproximadamente 390 zettabytes até 2028. 
+Esse crescimento é impulsionado principalmente pela expansão de serviços digitais e pela crescente geração de dados em áreas como ciência, indústria e entretenimento.
+Como consequência, surgem desafios cada vez maiores relacionados ao armazenamento, processamento e transmissão eficiente dessas informações, exigindo soluções capazes de lidar com volumes massivos de dados.
+
+Nesse cenário, a compressão de dados torna-se um pilar essencial para o gerenciamento eficiente da informação, sendo mais do que uma simples ferramenta para economizar espaço em disco, passando a desempenhar um papel central no processamento da informação, permitindo que grandes volumes de dados sejam manipulados de forma eficiente e transmitidos através de redes.
+Um exemplo claro dessa importância é a questão de versionamento em grandes repositórios de código fonte, onde é inviável manter um sistema que mantivesse cópias inteiras de diretórios a cada atualização sem o uso de algoritmos de compressão rodando em segundo plano.
+Da mesma maneira, no campo da bioinformática, o sequenciamento de nova geração, Next Generation Sequencing, gera milhões de leituras de fragmentos de DNA que precisam ser alinhadas a genomas de referência contendo bilhões de pares de bases.
+Lidar com esse grande volume de dados genômicos e manipulá-los em memória RAM só é computacionalmente viável graças às técnicas de compressão sem perdas.
+
+Podemos classificar as diferentes abordagens de compressão de dados em dois grupos principais. 
+O primeiro é a compressão com perda, lossy, amplamente utilizada em mídias de áudio, imagens e vídeos. Nesses casos, o algoritmo descarta detalhes imperceptíveis ou pouco relevantes aos seres humanos, permitindo alcançar taxas de compressão elevadas.
+O segundo refere-se à compressão sem perdas, lossless, que garante a integridade absoluta da informação, algo fundamental em domínios críticos, como em bancos de dados genômicos, onde perder um único bit de informação pode comprometer análises científicas e resultados computacionais.
+
+Dentro do universo da compressão sem perdas, a família de algoritmos Lempel-Ziv, especialmente o LZ78, desempenha um papel fundamental ao comprimir dados através da construção dinâmica de um dicionário, substituindo ocorrências repetidas por referências. À medida que o dicionário cresce e se torna mais rico, a capacidade do algoritmo de substituir trechos longos por referências compactas aumenta, tornando o processo cada vez mais eficiente.
+Paralelamente, a Transformada de Burrows-Wheeler, BWT, introduziu uma abordagem inovadora e reversível que reorganiza os caracteres de um texto, agrupando símbolos semelhantes em blocos contínuos, chamados de runs. A evolução e combinação dessas técnicas permitiu o desenvolvimento de estruturas de dados auto-indexadas compactas, como o FM-index.
+Tais estruturas são revolucionárias porque comprimem o texto e, simultaneamente, permitem buscas rápidas por padrões sem a necessidade de descompressão prévia. 
+
+Contudo, apesar da eficiência dos índices tradicionais, o processamento de coleções de dados massivamente repetitivas revelou limitações no escalonamento do FM-index.
+Nesse cenário, o r-index surge como uma evolução crítica, oferecendo uma estrutura cujo tamanho é proporcional ao número de runs da BWT, e não ao tamanho total do texto, garantindo alta performance em bases de dados de alta redundância.
+Diante dessa perspectiva, o presente trabalho propõe a implementação da fatoração LZ78 fundamentada na estrutura do r-index.
 
 \section*{Proposta}
-	A proposta do trabalho deve ser detalhada nesta seção.
+
+A proposta central deste trabalho é propor a implementação do algoritmo de fatoração LZ78 apoiado nas capacidades de busca eficiente do r-index. O trabalho visa explorar a sinergia entre a compressão baseada na construção de dicionários dinâmicos do LZ78 e as estruturas modernas de indexação comprimida de textos.
 
 \section*{Justificativa}
-	Deve ser dada a devida menção da importância da pesquisa sobre o tema adotado.	
+
+A realização deste projeto justifica-se pela demanda crítica e crescente por eficiência computacional em sistemas que lidam com redundância em escala extrema. A compressão deixou de ser apenas um utilitário e se tornou pilar essencial para o processamento e gerenciamento eficiente da informação.
+
+A necessidade de otimizar os custos de memória na fatoração e na busca de dados atinge diretamente áreas de enorme impacto social e científico. Na bioinformática, o sequenciamento de nova geração, Next Generation Sequencing, gera bilhões de leituras de fragmentos de DNA. Alinhar e gerenciar esses volumes colossais de dados genômicos em memória RAM só se tornou possível graças aos índices baseados em BWT, como o FM-index, presente em ferramentas como o Bowtie. 
+Da mesma forma, na engenharia de software, grandes repositórios baseiam-se fortemente na compressão de arquivos altamente repetitivos para efetuar o controle de versão de forma eficiente.
+	
+Ao estudar e aplicar a estrutura do r-index sobre um algoritmo clássico como o LZ78, este trabalho contribui para o avanço no manuseio de dados altamente repetitivos, viabilizando processos mais sustentáveis em termos de hardware computacional e acelerando a velocidade de análise de informações críticas.
 
 \section*{Proposta Metodológica Preliminar}
+
+Para o desenvolvimento do presente trabalho, a metodologia adotada consistirá, inicialmente, em uma pesquisa bibliográfica de caráter exploratório.
+Esta etapa inicial tem como objetivo aprofundar o referencial teórico a respeito da compressão de dados sem perdas, algoritmos universais de modelagem de dicionários e o funcionamento de estruturas de dados auto-indexadas.
+O embasamento teórico fundamentar-se-á em publicações científicas e literaturas consolidadas da ciência da computação, apoiando-se fortemente nos conceitos delineados por autores seminais da área, tais como Lempel, Ziv e Welch na compressão baseada em dicionário, Burrows e Wheeler no rearranjo reversível de strings, bem como Ferragina e Manzini no desenvolvimento do FM-index e estruturas oportunistas.
+
+Em um segundo momento, a pesquisa assumirá uma abordagem de natureza aplicada e quantitativa.
+O procedimento técnico central envolverá o projeto lógico e a implementação computacional do algoritmo de fatoração LZ78 operando de forma nativa sobre o \textit{r-index}.
+A construção dessa solução fará uso de conceitos avançados de estruturas de dados sucintas e dicionários indexáveis, como o emprego das operações de busca de \textit{rank} e \textit{select} sobre blocos de caracteres.
+Esse desenho metodológico garantirá que os dados permaneçam comprimidos em um espaço próximo ao limite ótimo teórico da informação, permitindo a extração de padrões e a construção da fatoração sem a exigência de descompressão prévia do texto.
+
+Por fim, para a validação do modelo computacional desenvolvido e a consolidação dos dados empíricos, serão conduzidos experimentos práticos controlados.
+A abordagem algorítmica proposta será submetida a testes de estresse utilizando bases de dados padronizadas e massivamente repetitivas. 
+A avaliação quantitativa consistirá em medir rigorosamente as variáveis de tempo de execução e o pico de consumo de memória RAM.
 
 \bibliography{bibliografia}
 
