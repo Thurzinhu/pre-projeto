@@ -1,10 +1,106 @@
-@manual{abntex2modelo-relatorio,
-	Annote = {Este documento {\'e} derivado do \cite{abnt-bibtex-doc}},
-	Author = {Lauro C{\'e}sar Araujo},
-	Date-Added = {2013-01-15 00:05:34 +0000},
-	Date-Modified = {2015-04-27 22:43:18 +0000},
-	Organization = {Equipe abnTeX2},
-	Title = {Modelo Can{\^o}nico de Relat{\'o}rio T{\'e}cnico e/ou Cient{\'\i}fico com abnTeX2},
-	Url = {http://www.abntex.net.br/},
-	Year = {2015},
-	Bdsk-Url-1 = {http://www.abntex.net.br/}}
+@ARTICLE{variableRateCodeCompression,
+  author={Ziv, J. and Lempel, A.},
+  journal={IEEE Transactions on Information Theory}, 
+  title={Compression of individual sequences via variable-rate coding}, 
+  year={1978},
+  volume={24},
+  number={5},
+  pages={530-536},
+  keywords={Lower bound;Codes;Channel coding;Public key cryptography;Probabilistic logic;Complexity theory;Automata;Entropy;Approximation algorithms;Distortion},
+  doi={10.1109/TIT.1978.1055934}
+}
+
+
+@inproceedings{Burrows1994ABL,
+  title={A Block-sorting Lossless Data Compression Algorithm},
+  author={Michael Burrows and D J Wheeler D I G I T A L and Robert W. Taylor and David J. Wheeler and David Wheeler},
+  year={1994},
+  url={https://api.semanticscholar.org/CorpusID:2167441}
+}
+
+@INPROCEEDINGS{oportunisticDataStructures,
+  author={Ferragina, P. and Manzini, G.},
+  booktitle={Proceedings 41st Annual Symposium on Foundations of Computer Science}, 
+  title={Opportunistic data structures with applications}, 
+  year={2000},
+  volume={},
+  number={},
+  pages={390-398},
+  keywords={Data structures;Indexing;Entropy;Costs;Tree data structures;Plugs;Computer science;Fault tolerance;Postal services;Data engineering},
+  doi={10.1109/SFCS.2000.892127}
+}
+
+
+@article{indexingCompressedText,
+	author = {Ferragina, Paolo and Manzini, Giovanni},
+	title = {Indexing compressed text},
+	year = {2005},
+	issue_date = {July 2005},
+	publisher = {Association for Computing Machinery},
+	address = {New York, NY, USA},
+	volume = {52},
+	number = {4},
+	issn = {0004-5411},
+	url = {https://doi.org/10.1145/1082036.1082039},
+	doi = {10.1145/1082036.1082039},
+	abstract = {We design two compressed data structures for the full-text indexing problem that support efficient substring searches using roughly the space required for storing the text in compressed form.Our first compressed data structure retrieves the occ occurrences of a pattern P[1,p] within a text T[1,n] in O(p + occ log1+ε n) time for any chosen ε, 0<ε<1. This data structure uses at most 5nHk(T) + o(n) bits of storage, where Hk(T) is the kth order empirical entropy of T. The space usage is Θ(n) bits in the worst case and o(n) bits for compressible texts. This data structure exploits the relationship between suffix arrays and the Burrows--Wheeler Transform, and can be regarded as a compressed suffix array.Our second compressed data structure achieves O(p+occ) query time using O(nHk(T)logε n) + o(n) bits of storage for any chosen ε, 0<ε<1. Therefore, it provides optimal output-sensitive query time using o(nlog n) bits in the worst case. This second data structure builds upon the first one and exploits the interplay between two compressors: the Burrows--Wheeler Transform and the LZ78 algorithm.},
+	journal = {J. ACM},
+	month = jul,
+	pages = {552–581},
+	numpages = {30},
+	keywords = {Burrows--Wheeler transform, Lempel--Ziv compressor, full-text indexing, indexing data structure, pattern searching, suffix array, suffix tree, text compression}
+}
+
+@article{assemblySringGraphFMIndex,
+	author = {Simpson, Jared T. and Durbin, Richard},
+	title = {Efficient construction of an assembly string graph using the FM-index},
+	year = {2010},
+	issue_date = {June 2010},
+	publisher = {Oxford University Press, Inc.},
+	address = {USA},
+	volume = {26},
+	number = {12},
+	issn = {1367-4803},
+	url = {https://doi.org/10.1093/bioinformatics/btq217},
+	doi = {10.1093/bioinformatics/btq217},
+	abstract = {Motivation: Sequence assembly is a difficult problem whose importance has grown again recently as the cost of sequencing has dramatically dropped. Most new sequence assembly software has started by building a de Bruijn graph, avoiding the overlap-based methods used previously because of the computational cost and complexity of these with very large numbers of short reads. Here, we show how to use suffix array-based methods that have formed the basis of recent very fast sequence mapping algorithms to find overlaps and generate assembly string graphs asymptotically faster than previously described algorithms.Results: Standard overlap assembly methods have time complexity O(N2), where N is the sum of the lengths of the reads. We use the Ferragina–Manzini index (FM-index) derived from the Burrows–Wheeler transform to find overlaps of length at least τ among a set of reads. As well as an approach that finds all overlaps then implements transitive reduction to produce a string graph, we show how to output directly only the irreducible overlaps, significantly shrinking memory requirements and reducing compute time to O(N), independent of depth. Overlap-based assembly methods naturally handle mixed length read sets, including capillary reads or long reads promised by the third generation sequencing technologies. The algorithms we present here pave the way for overlap-based assembly approaches to be developed that scale to whole vertebrate genome de novo assembly. Contact: js18@sanger.ac.uk},
+	journal = {Bioinformatics},
+	month = jun,
+	pages = {i367–i373}
+}
+
+@inbook{BWTRunsBoundedSpace,
+	author = {Travis Gagie and Gonzalo Navarro and Nicola Prezza},
+	title = {Optimal-Time Text Indexing in BWT-runs Bounded Space},
+	booktitle = {Proceedings of the 2018 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
+	chapter = {},
+	pages = {1459-1477},
+	doi = {10.1137/1.9781611975031.96},
+	URL = {https://epubs.siam.org/doi/abs/10.1137/1.9781611975031.96},
+	eprint = {https://epubs.siam.org/doi/pdf/10.1137/1.9781611975031.96},
+    abstract = { Abstract Indexing highly repetitive texts — such as genomic databases, software repositories and versioned text collections — has become an important problem since the turn of the millennium. A relevant compressibility measure for repetitive texts is r, the number of runs in their Burrows-Wheeler Transform (BWT). One of the earliest indexes for repetitive collections, the Run-Length FM-index, used O(r) space and was able to efficiently count the number of occurrences of a pattern of length m in the text (in loglogarithmic time per pattern symbol, with current techniques). However, it was unable to locate the positions of those occurrences efficiently within a space bounded in terms of r. Since then, a number of other indexes with space bounded by other measures of repetitiveness — the number of phrases in the Lempel-Ziv parse, the size of the smallest grammar generating the text, the size of the smallest automaton recognizing the text factors — have been proposed for efficiently locating, but not directly counting, the occurrences of a pattern. In this paper we close this long-standing problem, showing how to extend the Run-Length FM-index so that it can locate the occ occurrences efficiently within O(r) space (in loglogarithmic time each), and reaching optimal time O(m + occ) within O(r log(n/r)) space, on a RAM machine with words of w = Ω(log n) bits. Raising the space to O(rw logσ(n/r)), we support locate in O(m log(σ)/w + occ) time, which is optimal in the packed setting and had not been obtained before in compressed space. We also describe a structure using O(r log(n/r)) space that replaces the text and efficiently extracts any text substring, with an O(log(n/r)) additive time penalty over the optimum. Preliminary experiments show that our new structure outperforms the alternatives by orders of magnitude in the space/time tradeoff map. }
+}
+
+@article{RefiningRIndex,
+	title = {Refining the r-index},
+	journal = {Theoretical Computer Science},
+	volume = {812},
+	pages = {96-108},
+	year = {2020},
+	note = {In memoriam Danny Breslauer (1968-2017)},
+	issn = {0304-3975},
+	doi = {https://doi.org/10.1016/j.tcs.2019.08.005},
+	url = {https://www.sciencedirect.com/science/article/pii/S0304397519304943},
+	author = {Hideo Bannai and Travis Gagie and Tomohiro I},
+	keywords = {Burrow-Wheeler transform, FM-index, -index, Dynamic indexing, LZ77 parsing, Matching statistics},
+	abstract = {Gagie, Navarro and Prezza's r-index (SODA, 2018) promises to speed up DNA alignment and variation calling by allowing us to index entire genomic databases, provided certain obstacles can be overcome. In this paper we first strengthen and simplify Policriti and Prezza's Toehold Lemma (DCC '16; Algorithmica, 2017), which inspired the r-index and plays an important role in its implementation. We then show how to update the r-index efficiently after adding a new genome to the database, which is likely to be vital in practice. As a by-product of this result, we obtain an online version of Policriti and Prezza's algorithm for constructing the LZ77 parse from a run-length compressed Burrows-Wheeler Transform. Our experiments demonstrate the practicality of all three of these results. Finally, we show how to augment the r-index such that, given a new genome and fast random access to the database, we can quickly compute the matching statistics and maximal exact matches of the new genome with respect to the database.}
+}
+
+@misc{statista2024data,
+	Author = {Statista},
+	Title = {Volume of data/information created, captured, copied, and consumed worldwide from 2010 to 2020, with forecasts from 2021 to 2025},
+	Year = {2024},
+	Url = {https://www.statista.com/statistics/871513/worldwide-data-created/},
+	Urlaccessdate = {11 mar. 2026},
+	Note = {Acessado em: 11 mar. 2026}
+}
