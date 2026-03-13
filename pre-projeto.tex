@@ -45,7 +45,7 @@
 %\coorientadora{ - }
 
 % Linha de pesquisa conforme tabela de áreas do CNPq
-\areadepesquisa{Compressão de Dados}
+\areadepesquisa{Estruturas de Dados Compactas}
 \local{Brasília, DF}
 \data{2026	}
 
@@ -60,21 +60,26 @@
 
 \section*{Contextualização}
 
-De acordo com projeções da Statista, o volume global de dados criados, capturados, copiados e consumidos deverá atingir aproximadamente 520 zettabytes até 2029 \cite{statista2024data}.
-Esse crescimento é impulsionado principalmente pela expansão de serviços digitais e pela crescente geração de dados em áreas como ciência, indústria e entretenimento.
-Como consequência, surgem desafios cada vez maiores relacionados ao armazenamento, processamento e transmissão eficiente dessas informações, exigindo soluções capazes de lidar com volumes massivos de dados.
+De acordo com projeções da Statista, o volume global de dados criados, capturados, copiados e consumidos deverá atingir aproximadamente 520 bilhões de terabytes até 2029 \cite{statista2024data}.
+Esse crescimento exponencial da produção de dados digitais tornou-se uma das características mais marcantes da era da informação, sendo impulsionado por diversos fatores, como a proliferação de dispositivos conectados, a popularização de serviços de streaming e redes sociais, a expansão da computação em nuvem e o uso crescente de sensores e dispositivos da Internet das Coisas (\textit{Internet of Things} -- IoT).
+Diante desse cenário, surgem desafios cada vez mais complexos relacionados ao armazenamento, processamento e transmissão eficiente dessas informações.
+Infraestruturas computacionais tradicionais passam a enfrentar limitações de escala e desempenho, o que intensifica a necessidade de técnicas avançadas de gerenciamento e compressão de dados capazes de reduzir custos de armazenamento e melhorar a eficiência dos sistemas que operam sobre volumes massivos de informação \cite{infinidat2026storage}.
 
-Nesse cenário, a compressão de dados torna-se um pilar essencial para o gerenciamento eficiente da informação.
-Um exemplo claro dessa importância é a questão de versionamento em grandes repositórios de código fonte, onde é inviável manter cópias inteiras de diretórios a cada atualização sem o uso de algoritmos de compressão.
-Da mesma maneira, no campo da bioinformática, o sequenciamento de nova geração (\textit{Next Generation Sequencing}) gera milhões de leituras de fragmentos de DNA que precisam ser alinhadas a genomas de referência.
-Lidar com esse grande volume de dados genômicos e manipulá-los em memória RAM só é computacionalmente viável graças às técnicas de compressão sem perdas \cite{assemblySringGraphFMIndex}.
+Nesse contexto, a compressão de dados torna-se um pilar essencial para o gerenciamento eficiente da informação, especialmente em sua vertente sem perdas (\textit{lossless}), que constitui uma exigência fundamental em domínios críticos.
+Um exemplo claro dessa necessidade é o versionamento em grandes repositórios de código-fonte, nos quais seria inviável manter cópias completas de diretórios a cada atualização sem o auxílio de técnicas de compressão.
+De maneira semelhante, no campo da bioinformática, o sequenciamento de nova geração (\textit{Next-Generation Sequencing}) produz milhões de leituras curtas de fragmentos de DNA que precisam ser armazenadas e processadas em memória, impondo desafios significativos de armazenamento e processamento computacional \cite{NGSBigDataHighPerformanceComputing}.
 
-Dentro do universo da compressão sem perdas, a família de algoritmos Lempel-Ziv, especialmente o LZ78, desempenha um papel fundamental ao comprimir dados através da construção dinâmica de um dicionário, substituindo ocorrências repetidas por referências. \cite{variableRateCodeCompression}.
-Paralelamente, a Transformada de Burrows-Wheeler (BWT) introduziu uma abordagem inovadora que reorganiza os caracteres de um texto em blocos contínuos chamados de \textit{runs} \cite{Burrows1994ABL}.
-A evolução dessas técnicas permitiu o desenvolvimento de estruturas de dados auto-indexadas compactas, como o FM-index, possibilitando buscas rápidas por padrões no texto sem a necessidade de armazenar toda a informação original.\cite{oportunisticDataStructures, indexingCompressedText}.
+Dentro do universo da compressão sem perdas, duas abordagens teóricas têm desempenhado papéis fundamentais.
+Por um lado, a família de algoritmos de compressão Lempel-Ziv, em especial o LZ78, realiza a compressão de dados por meio da construção dinâmica de um dicionário de padrões observados no texto.
+À medida que novas sequências são identificadas, elas são inseridas nesse dicionário e representadas por referências compactas, permitindo substituir ocorrências repetidas por índices associados a entradas previamente registradas \cite{variableRateCodeCompression}.
+Por outro lado, a Transformada de Burrows-Wheeler (BWT) introduziu uma abordagem inovadora que reorganiza os caracteres de um texto, agrupando símbolos semelhantes em blocos contínuos chamados de \textit{runs}, os quais podem posteriormente ser comprimidos por algoritmos simples, como o \textit{Run-Length Encoding} \cite{Burrows1994ABL}.
 
-Contudo, o processamento de coleções massivamente repetitivas revelou limitações no FM-index \cite{RefiningRIndex}. 
-Nesse cenário, o \textit{r-index} surge como uma evolução crítica, oferecendo uma estrutura cujo tamanho é proporcional ao número de \textit{runs} da BWT, e não ao tamanho total do texto \cite{BWTRunsBoundedSpace}.
+A evolução e a combinação dessas técnicas possibilitaram o desenvolvimento de estruturas de dados auto-indexadas compactas, como o FM-index, que permitem realizar buscas eficientes por padrões sem a necessidade de armazenar explicitamente o texto original \cite{oportunisticDataStructures, indexingCompressedText}.
+O impacto prático dessas estruturas é particularmente evidente no campo da bioinformática, onde contribuíram significativamente para viabilizar o complexo problema da montagem de sequências genômicas (\textit{de novo sequence assembly}).
+Enquanto métodos tradicionais baseados em sobreposição apresentam custo computacional quadrático, tornando-se inviáveis em larga escala, a utilização de índices baseados em BWT, como o FM-index, permite identificar sobreposições entre fragmentos de forma muito mais eficiente, reduzindo significativamente os requisitos de memória e possibilitando o processamento de genomas completos de organismos complexos \cite{assemblySringGraphFMIndex}.
+
+Contudo, o processamento de coleções massivamente repetitivas revelou limitações importantes no FM-index \cite{RefiningRIndex}.
+Nesse contexto, o \textit{r-index} surge como uma evolução relevante, oferecendo uma estrutura cujo tamanho é proporcional ao número de \textit{runs} da BWT, e não ao tamanho total do texto \cite{BWTRunsBoundedSpace}.
 Diante dessa perspectiva, o presente trabalho propõe a implementação da fatoração LZ78 fundamentada na estrutura do \textit{r-index}.
 
 \section*{Proposta}
@@ -85,18 +90,18 @@ Com essa abordagem, pretende-se viabilizar a fatoração de grandes volumes de d
 \section*{Justificativa}
 
 A relevância deste projeto fundamenta-se na necessidade de soluções computacionais capazes de mitigar o gargalo de memória em sistemas que processam dados com redundância em escala extrema.
-Essa demanda é particularmente crítica em áreas de alto impacto científico, como na bioinformática, onde gerenciar volumes colossais de dados genômicos em memória RAM só se tornou possível graças aos índices baseados em BWT, como o FM-index \cite{indexingCompressedText, assemblySringGraphFMIndex}.
-Ao aplicar a estrutura do \textit{r-index} sobre o LZ78, este trabalho contribui para o avanço no manuseio de dados altamente repetitivos, oferecendo uma alternativa que alia a eficiência de dicionários dinâmicos à performance superior de busca em espaços proporcionais ao número de runs da BWT.
+Essa demanda é particularmente crítica em áreas de alto impacto científico, como na bioinformática, onde a utilização de métodos baseados no FM-index, possibilitaram ganhos significativos em termos complexidade espacial e temporal \cite{assemblySringGraphFMIndex}.
+Contudo, embora os índices tradicionais tenham importância em diversas áreas, o escalonamento para coleções de dados massivamente repetitivas exige estruturas ainda mais eficientes \cite{RefiningRIndex}.
+Ao aplicar a estrutura do \textit{r-index} sobre o LZ78, este trabalho contribui para o avanço no manuseio de dados altamente redundantes, oferecendo uma alternativa que alia a eficiência de dicionários dinâmicos à performance superior de busca em espaços proporcionais ao número de runs da BWT.
 
 \section*{Proposta Metodológica Preliminar}
 
 Para o desenvolvimento do presente trabalho, a metodologia adotada consistirá, inicialmente, em uma pesquisa bibliográfica de caráter exploratório.
 Esta etapa inicial tem como objetivo aprofundar o referencial teórico a respeito da compressão de dados sem perdas, algoritmos universais de modelagem de dicionários e o funcionamento de estruturas de dados auto-indexadas.
-O embasamento teórico fundamentar-se-á em publicações científicas e literaturas consolidadas da ciência da computação, apoiando-se fortemente nos conceitos delineados por autores seminais da área, tais como Lempel, Ziv e Welch na compressão baseada em dicionário, Burrows e Wheeler no rearranjo reversível de strings, bem como Ferragina e Manzini no desenvolvimento do FM-index e estruturas oportunistas.
+O embasamento teórico fundamentar-se-á em publicações científicas e literaturas consolidadas da ciência da computação, apoiando-se fortemente nos conceitos delineados por autores seminais da área, tais como Lempel, Ziv e Welch na compressão baseada em dicionário, Burrows e Wheeler no rearranjo reversível de strings, bem como Ferragina e Manzini no desenvolvimento do FM-index e estruturas de dados compactas.
 
 Em um segundo momento, a pesquisa assumirá uma abordagem de natureza aplicada e quantitativa.
 O procedimento técnico central envolverá o projeto lógico e a implementação computacional do algoritmo de fatoração LZ78 operando de forma nativa sobre o \textit{r-index}.
-A construção dessa solução fará uso de conceitos avançados de estruturas de dados sucintas e dicionários indexáveis, como o emprego das operações de busca de \textit{rank} e \textit{select} sobre blocos de caracteres.
 Esse desenho metodológico garantirá que os dados permaneçam comprimidos em um espaço próximo ao limite ótimo teórico da informação, permitindo a extração de padrões e a construção da fatoração sem a exigência de descompressão prévia do texto.
 
 Por fim, para a validação do modelo computacional desenvolvido e a consolidação dos dados empíricos, serão conduzidos experimentos práticos controlados.
