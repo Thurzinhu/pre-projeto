@@ -1,7 +1,7 @@
 @ARTICLE{variableRateCodeCompression,
   author={Ziv, J. and Lempel, A.},
   journal={IEEE Transactions on Information Theory}, 
-  title={Compression of individual sequences via variable-rate coding}, 
+  title={{{Compression of individual sequences via variable-rate coding}}}, 
   year={1978},
   volume={24},
   number={5},
@@ -12,7 +12,7 @@
 
 
 @inproceedings{Burrows1994ABL,
-  title={A Block-sorting Lossless Data Compression Algorithm},
+  title={{{A Block-sorting Lossless Data Compression Algorithm}}},
   author={Michael Burrows and D J Wheeler D I G I T A L and Robert W. Taylor and David J. Wheeler and David Wheeler},
   year={1994},
   url={https://api.semanticscholar.org/CorpusID:2167441}
@@ -21,7 +21,7 @@
 @INPROCEEDINGS{oportunisticDataStructures,
   author={Ferragina, P. and Manzini, G.},
   booktitle={Proceedings 41st Annual Symposium on Foundations of Computer Science}, 
-  title={Opportunistic data structures with applications}, 
+  title={{{Opportunistic data structures with applications}}}, 
   year={2000},
   volume={},
   number={},
@@ -33,7 +33,7 @@
 
 @article{indexingCompressedText,
 	author = {Ferragina, Paolo and Manzini, Giovanni},
-	title = {Indexing compressed text},
+	title = {{{Indexing compressed text}}},
 	year = {2005},
 	issue_date = {July 2005},
 	publisher = {Association for Computing Machinery},
@@ -53,7 +53,7 @@
 
 @article{assemblySringGraphFMIndex,
 	author = {Simpson, Jared T. and Durbin, Richard},
-	title = {Efficient construction of an assembly string graph using the FM-index},
+	title = {{{Efficient construction of an assembly string graph using the FM-index}}},
 	year = {2010},
 	issue_date = {June 2010},
 	publisher = {Oxford University Press, Inc.},
@@ -69,20 +69,23 @@
 	pages = {i367–i373}
 }
 
-@inbook{BWTRunsBoundedSpace,
-	author = {Travis Gagie and Gonzalo Navarro and Nicola Prezza},
-	title = {Optimal-Time Text Indexing in BWT-runs Bounded Space},
-	booktitle = {Proceedings of the 2018 Annual ACM-SIAM Symposium on Discrete Algorithms (SODA)},
-	chapter = {},
-	pages = {1459-1477},
-	doi = {10.1137/1.9781611975031.96},
-	URL = {https://epubs.siam.org/doi/abs/10.1137/1.9781611975031.96},
-	eprint = {https://epubs.siam.org/doi/pdf/10.1137/1.9781611975031.96},
-    abstract = { Abstract Indexing highly repetitive texts — such as genomic databases, software repositories and versioned text collections — has become an important problem since the turn of the millennium. A relevant compressibility measure for repetitive texts is r, the number of runs in their Burrows-Wheeler Transform (BWT). One of the earliest indexes for repetitive collections, the Run-Length FM-index, used O(r) space and was able to efficiently count the number of occurrences of a pattern of length m in the text (in loglogarithmic time per pattern symbol, with current techniques). However, it was unable to locate the positions of those occurrences efficiently within a space bounded in terms of r. Since then, a number of other indexes with space bounded by other measures of repetitiveness — the number of phrases in the Lempel-Ziv parse, the size of the smallest grammar generating the text, the size of the smallest automaton recognizing the text factors — have been proposed for efficiently locating, but not directly counting, the occurrences of a pattern. In this paper we close this long-standing problem, showing how to extend the Run-Length FM-index so that it can locate the occ occurrences efficiently within O(r) space (in loglogarithmic time each), and reaching optimal time O(m + occ) within O(r log(n/r)) space, on a RAM machine with words of w = Ω(log n) bits. Raising the space to O(rw logσ(n/r)), we support locate in O(m log(σ)/w + occ) time, which is optimal in the packed setting and had not been obtained before in compressed space. We also describe a structure using O(r log(n/r)) space that replaces the text and efficiently extracts any text substring, with an O(log(n/r)) additive time penalty over the optimum. Preliminary experiments show that our new structure outperforms the alternatives by orders of magnitude in the space/time tradeoff map. }
+@inproceedings{BWTRunsBoundedSpace,
+	author = {Gagie, Travis and Navarro, Gonzalo and Prezza, Nicola},
+	title = {{{Optimal-time text indexing in BWT-runs bounded space}}},
+	year = {2018},
+	isbn = {9781611975031},
+	publisher = {Society for Industrial and Applied Mathematics},
+	address = {USA},
+	abstract = {Indexing highly repetitive texts --- such as genomic databases, software repositories and versioned text collections --- has become an important problem since the turn of the millennium. A relevant compressibility measure for repetitive texts is r, the number of runs in their Burrows-Wheeler Transform (BWT). One of the earliest indexes for repetitive collections, the Run-Length FM-index, used O(r) space and was able to efficiently count the number of occurrences of a pattern of length m in the text (in loglogarithmic time per pattern symbol, with current techniques). However, it was unable to locate the positions of those occurrences efficiently within a space bounded in terms of r. Since then, a number of other indexes with space bounded by other measures of repetitiveness --- the number of phrases in the Lempel-Ziv parse, the size of the smallest grammar generating the text, the size of the smallest automaton recognizing the text factors --- have been proposed for efficiently locating, but not directly counting, the occurrences of a pattern. In this paper we close this long-standing problem, showing how to extend the Run-Length FM-index so that it can locate the occ occurrences efficiently within O(r) space (in loglogarithmic time each), and reaching optimal time O(m + occ) within O(r log(n/r)) space, on a RAM machine with words of w = Ω(log n) bits. Raising the space to O(rw logσ(n/r)), we support locate in O(m log(σ)/w + occ) time, which is optimal in the packed setting and had not been obtained before in compressed space. We also describe a structure using O(r log(n/r)) space that replaces the text and efficiently extracts any text substring, with an O(log(n/r)) additive time penalty over the optimum. Preliminary experiments show that our new structure outperforms the alternatives by orders of magnitude in the space/time tradeoff map.},
+	booktitle = {Proceedings of the Twenty-Ninth Annual ACM-SIAM Symposium on Discrete Algorithms},
+	pages = {1459–1477},
+	numpages = {19},
+	location = {New Orleans, Louisiana},
+	series = {SODA '18}
 }
 
 @article{RefiningRIndex,
-	title = {Refining the r-index},
+	title = {{{Refining the r-index}}},
 	journal = {Theoretical Computer Science},
 	volume = {812},
 	pages = {96-108},
@@ -97,7 +100,7 @@
 }
 
 @article{NGSBigDataHighPerformanceComputing,
-	title = {Next-generation sequencing: big data meets high performance computing},
+	title = {{{Next-generation sequencing: big data meets high performance computing}}},
 	journal = {Drug Discovery Today},
 	volume = {22},
 	number = {4},
@@ -112,7 +115,7 @@
 
 @misc{statista2024data,
 	Author = {Statista},
-	Title = {Volume of data/information created, captured, copied, and consumed worldwide from 2010 to 2020, with forecasts from 2021 to 2025},
+	Title = {{{Volume of data/information created, captured, copied, and consumed worldwide from 2010 to 2024, with forecasts from 2025 to 2029}}},
 	Year = {2024},
 	Url = {https://www.statista.com/statistics/871513/worldwide-data-created/},
 	Urlaccessdate = {11 mar. 2026},
@@ -120,8 +123,18 @@
 }
 
 @misc{infinidat2026storage,
-  title = {Storage Trends for 2026},
-  year = {2026},
+  title = {{{Storage Trends for 2026}}},
+  Author = {Infinidat},
+  year = {2025},
   publisher = {Infinidat},
   url = {https://www.infinidat.com}
+}
+
+@unknown{LZ78FMIndex,
+	author = {{{Nunes, Daniel and Louza, Felipe and Telles, Guilherme and Ayala-Rincon, Mauricio}}},
+	year = {2015},
+	month = {11},
+	pages = {},
+	title = {LZ78 factorization using the FM-index},
+	doi = {10.13140/RG.2.2.36129.10086}
 }

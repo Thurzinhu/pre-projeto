@@ -67,7 +67,7 @@ Infraestruturas computacionais tradicionais passam a enfrentar limitações de e
 
 Nesse contexto, a compressão de dados torna-se um pilar essencial para o gerenciamento eficiente da informação, especialmente em sua vertente sem perdas (\textit{lossless}), que constitui uma exigência fundamental em domínios críticos.
 Um exemplo claro dessa necessidade é o versionamento em grandes repositórios de código-fonte, nos quais seria inviável manter cópias completas de diretórios a cada atualização sem o auxílio de técnicas de compressão.
-De maneira semelhante, no campo da bioinformática, o sequenciamento de nova geração (\textit{Next-Generation Sequencing}) produz milhões de leituras curtas de fragmentos de DNA que precisam ser armazenadas e processadas em memória, impondo desafios significativos de armazenamento e processamento computacional \cite{NGSBigDataHighPerformanceComputing}.
+De maneira semelhante, no campo da bioinformática, o sequenciamento de nova geração (\textit{Next-Generation Sequencing}) produz milhões de leituras curtas de fragmentos de DNA, que precisam ser armazenadas e processadas em memória, impondo desafios significativos de armazenamento e processamento computacional \cite{NGSBigDataHighPerformanceComputing}.
 
 Dentro do universo da compressão sem perdas, duas abordagens teóricas têm desempenhado papéis fundamentais.
 Por um lado, a família de algoritmos de compressão Lempel-Ziv, em especial o LZ78, realiza a compressão de dados por meio da construção dinâmica de um dicionário de padrões observados no texto.
@@ -77,6 +77,10 @@ Por outro lado, a Transformada de Burrows-Wheeler (BWT) introduziu uma abordagem
 A evolução e a combinação dessas técnicas possibilitaram o desenvolvimento de estruturas de dados auto-indexadas compactas, como o FM-index, que permitem realizar buscas eficientes por padrões sem a necessidade de armazenar explicitamente o texto original \cite{oportunisticDataStructures, indexingCompressedText}.
 O impacto prático dessas estruturas é particularmente evidente no campo da bioinformática, onde contribuíram significativamente para viabilizar o complexo problema da montagem de sequências genômicas (\textit{de novo sequence assembly}).
 Enquanto métodos tradicionais baseados em sobreposição apresentam custo computacional quadrático, tornando-se inviáveis em larga escala, a utilização de índices baseados em BWT, como o FM-index, permite identificar sobreposições entre fragmentos de forma muito mais eficiente, reduzindo significativamente os requisitos de memória e possibilitando o processamento de genomas completos de organismos complexos \cite{assemblySringGraphFMIndex}.
+
+Além de seu impacto em aplicações como a montagem de genomas, o FM-index também tem sido explorado no desenvolvimento de algoritmos eficientes para fatoração baseada em dicionário. 
+Em particular, trabalhos recentes demonstram que a fatoração LZ78 pode ser computada diretamente a partir do FM-index do texto, explorando operações de busca e extensão de padrões sobre a estrutura auto-indexada \cite{LZ78FMIndex}.
+Essa abordagem permite identificar fatores do LZ78 sem a necessidade de acessar explicitamente o texto original, reduzindo o consumo de memória e aproveitando as propriedades compactas da representação baseada na Transformada de Burrows-Wheeler.
 
 Contudo, o processamento de coleções massivamente repetitivas revelou limitações importantes no FM-index \cite{RefiningRIndex}.
 Nesse contexto, o \textit{r-index} surge como uma evolução relevante, oferecendo uma estrutura cujo tamanho é proporcional ao número de \textit{runs} da BWT, e não ao tamanho total do texto \cite{BWTRunsBoundedSpace}.
